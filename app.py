@@ -85,6 +85,6 @@ def main():
         for r in results:
             family=r["family"].replace("\\","\\\\").replace("'","\\'")
             lines += ["@font-face {",f"  font-family: '{family}';",f"  src: url('{Path(r['file']).name}') format('{'opentype' if r['format']=='OpenType CFF' else 'truetype'}');",f"  font-weight: {r['weight_class'] or 400};","  font-style: normal;","}",""]
-        Path(a.css).write_text("\\n".join(lines),encoding="utf-8")
+        Path(a.css).write_text("\n".join(lines),encoding="utf-8")
     return 0
 if __name__=="__main__": sys.exit(main())
